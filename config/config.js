@@ -11,7 +11,7 @@ export const config = {
   discord: {
     token: process.env.DISCORD_BOT_TOKEN,
     clientId: process.env.DISCORD_CLIENT_ID,
-    guildId: process.env.DISCORD_GUILD_ID
+    channelId: process.env.DISCORD_CHANNEL_ID
   },
   database: {
     path: process.env.DATABASE_PATH || './data/bot.db'
@@ -31,6 +31,7 @@ export function validateConfig() {
   console.log('Environment variables present:', {
     DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN ? '✅ Present' : '❌ Missing',
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID ? '✅ Present' : '❌ Missing',
+    DISCORD_CHANNEL_ID: process.env.DISCORD_CHANNEL_ID ? '✅ Present' : '❌ Missing',
     DATABASE_PATH: process.env.DATABASE_PATH || 'Using default',
     NODE_ENV: process.env.NODE_ENV || 'Using default'
   });
