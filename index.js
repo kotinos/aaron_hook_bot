@@ -43,34 +43,47 @@ class HookBot {
    */
   async initialize() {
     try {
-      logger.info('Starting Discord Hook Bot initialization...');
+      logger.info('🚀 Starting Discord Hook Bot initialization...');
       
+      logger.info('📋 Step 1: Validating configuration...');
       validateConfig();
-      logger.info('Configuration validated successfully');
+      logger.info('✅ Configuration validated successfully');
       
+      logger.info('📋 Step 2: Initializing database...');
       await dbManager.initialize();
-      logger.info('Database initialized successfully');
+      logger.info('✅ Database initialized successfully');
       
+      logger.info('📋 Step 3: Loading commands...');
       await this.loadCommands();
-      logger.info('Commands loaded successfully');
+      logger.info('✅ Commands loaded successfully');
       
+      logger.info('📋 Step 4: Loading events...');
       await this.loadEvents();
-      logger.info('Events loaded successfully');
+      logger.info('✅ Events loaded successfully');
       
+      logger.info('📋 Step 5: Registering slash commands...');
       await this.registerCommands();
-      logger.info('Slash commands registered successfully');
+      logger.info('✅ Slash commands registered successfully');
       
+      logger.info('📋 Step 6: Setting up cleanup tasks...');
       this.setupCleanupTasks();
-      logger.info('Cleanup tasks scheduled');
+      logger.info('✅ Cleanup tasks scheduled');
       
+      logger.info('📋 Step 7: Setting up graceful shutdown...');
       this.setupGracefulShutdown();
-      logger.info('Graceful shutdown handlers registered');
+      logger.info('✅ Graceful shutdown handlers registered');
       
+      logger.info('📋 Step 8: Logging into Discord...');
       await this.client.login(config.discord.token);
-      logger.info('Bot logged in successfully');
+      logger.info('🎉 Bot logged in successfully - waiting for ready event...');
       
     } catch (error) {
-      logger.error('Bot initialization failed:', error);
+      logger.error('❌ Bot initialization failed:', error);
+      logger.error('Error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
       process.exit(1);
     }
   }

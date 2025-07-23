@@ -5,8 +5,8 @@ export const name = Events.ClientReady;
 export const once = true;
 
 export function execute(client) {
-  logger.info(`Bot is ready! Logged in as ${client.user.tag}`);
-  logger.info(`Bot is in ${client.guilds.cache.size} guilds`);
+  logger.info(`🎉 Bot is ready! Logged in as ${client.user.tag}`);
+  logger.info(`📊 Bot is in ${client.guilds.cache.size} guilds`);
   
   client.user.setPresence({
     activities: [{
@@ -16,5 +16,6 @@ export function execute(client) {
     status: 'online'
   });
   
-  logger.info('Bot presence set successfully');
+  logger.info('✅ Bot presence set successfully');
+  logger.info('🚀 Discord Hook Bot is now fully operational!');
 }
