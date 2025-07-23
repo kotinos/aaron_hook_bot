@@ -110,28 +110,225 @@ aaron_hook_bot/
 └── data/                   # Database storage (auto-created)
 ```
 
-## Usage Examples
+## User Experience (UX) Guide
 
-### Generate Hooks
+### Discord Interface Overview
+
+The bot integrates seamlessly with Discord using modern slash commands. All responses are **ephemeral** (only visible to you), ensuring privacy and reducing channel clutter.
+
+### Command Discovery
+
+Users can discover commands by typing `/` in any channel where the bot is present:
+
+```
+/hook    - Generate viral content hooks
+/status  - View bot health and usage stats
+```
+
+Discord's autocomplete will show available commands and their descriptions.
+
+---
+
+## Detailed UX Flows
+
+### 🎯 Generating Hooks with `/hook enter`
+
+#### Step 1: Command Input
 ```
 /hook enter context: starting a fitness journey
 ```
 
-Response includes:
-- 10 different hook types with emojis
-- Engagement scores (70-98%)
-- Usage statistics
-- Time until rate limit reset
+**What the user sees:**
+- Discord shows command autocomplete with parameter hints
+- Required `context` parameter is clearly marked
+- Character limit guidance (3-500 characters)
 
-### Check Status
+#### Step 2: Bot Processing
+```
+🤖 Bot is thinking... (ephemeral message appears)
+```
+
+**User experience:**
+- Immediate feedback that command was received
+- "Thinking" indicator shows processing is happening
+- Typical response time: 1-3 seconds
+
+#### Step 3: Hook Generation Response
+
+**Full Response Example:**
+```
+🎯 **Your Viral Content Hooks** 🎯
+
+**1. 🔥 Controversial Statement** (94% engagement)
+Everyone says starting a fitness journey is about motivation. They're wrong.
+
+**2. 💔 Emotional Trigger** (92% engagement)
+This starting a fitness journey story will break your heart
+
+**3. 🔍 Curiosity Gap** (90% engagement)
+The secret behind starting a fitness journey that nobody talks about...
+
+**4. 📖 Storytelling Opener** (89% engagement)
+Three years ago, starting a fitness journey completely destroyed my life. Today, it saved it.
+
+**5. ❓ Question Hook** (88% engagement)
+What if I told you that starting a fitness journey could change everything you thought you knew?
+
+**6. ⚡ Urgency Hook** (87% engagement)
+You have 24 hours to understand starting a fitness journey before it's too late
+
+**7. 🔄 Contrarian Take** (86% engagement)
+While everyone obsesses over starting a fitness journey, I'm doing the opposite
+
+**8. 📊 Statistical Hook** (84% engagement)
+97% of people don't know this about starting a fitness journey
+
+**9. 👤 Personal Anecdote** (83% engagement)
+How starting a fitness journey changed my life in ways I never expected
+
+**10. 💡 Actionable Tip** (81% engagement)
+The 5-minute starting a fitness journey hack that changed everything
+
+💡 *Tip: Higher engagement scores indicate hooks more likely to go viral!*
+
+📊 **Usage**: 1/3 requests used | 2 remaining
+⏰ **Resets**: 23h 59m
+```
+
+**UX Features:**
+- ✅ **Ranked by engagement** - Highest scoring hooks appear first
+- ✅ **Visual hierarchy** - Clear numbering, emojis, and formatting
+- ✅ **Engagement scores** - Percentage indicates viral potential
+- ✅ **Usage tracking** - Shows remaining requests clearly
+- ✅ **Reset timer** - Exact time until rate limit resets
+- ✅ **Ephemeral response** - Only visible to the user who ran the command
+
+---
+
+### 📊 Checking Status with `/status`
+
+#### Command Input
 ```
 /status
 ```
 
-Shows:
-- Bot health and uptime
-- Your usage statistics
-- Request history and success rate
+#### Response Example
+```
+🤖 Bot Status & Statistics
+
+🟢 Bot Health
+Status: Online
+Uptime: 2h 34m
+Memory: 45 MB
+Database: Connected
+
+📊 Your Usage
+Requests Used: 1/3
+Remaining: 2
+Resets In: 23h 59m
+
+📈 Your Statistics
+Total Requests: 5
+Successful: 5
+Avg Response: 1,247ms
+
+Hook Bot v1.0.0
+```
+
+**UX Features:**
+- ✅ **Health indicators** - Green status shows everything working
+- ✅ **Personal usage** - Your specific rate limit status
+- ✅ **Historical stats** - Track your usage over time
+- ✅ **Performance metrics** - Response time transparency
+
+---
+
+## Error Handling UX
+
+### Rate Limit Exceeded
+```
+⏰ Rate Limit Exceeded
+
+You've reached your limit of 3 requests per 24 hours. 
+You can make 3 requests every 24 hours. Try again in 2h 15m.
+
+Reset Time: 2h 15m
+```
+
+### Invalid Input
+```
+❌ Invalid Input
+
+Context must be at least 3 characters long
+
+If this error persists, please contact support
+```
+
+### Content Filter Triggered
+```
+❌ Invalid Input
+
+Context contains inappropriate content
+
+If this error persists, please contact support
+```
+
+---
+
+## Mobile Experience
+
+The bot works seamlessly on Discord mobile apps:
+
+- **Touch-friendly** - Large tap targets for commands
+- **Readable text** - Optimized formatting for small screens  
+- **Quick access** - Slash commands work identically on mobile
+- **Ephemeral responses** - Reduces notification spam
+
+---
+
+## Accessibility Features
+
+- **Screen reader friendly** - Semantic formatting with clear headings
+- **High contrast** - Emojis and formatting improve readability
+- **Clear language** - Simple, direct messaging
+- **Error guidance** - Specific, actionable error messages
+
+---
+
+## Privacy & Security UX
+
+- **🔒 Ephemeral responses** - Your hooks are private to you
+- **🛡️ No data retention** - Context isn't stored permanently
+- **⚡ Rate limiting** - Prevents spam and ensures fair usage
+- **🔍 Input validation** - Protects against malicious input
+
+---
+
+## Usage Examples by Context Type
+
+### Business/Marketing
+```
+Input: "launching a new product"
+Top Hook: "The uncomfortable truth about launching a new product that no one admits" (95%)
+```
+
+### Personal Development  
+```
+Input: "learning to code"
+Top Hook: "Everyone says learning to code is about practice. They're wrong." (93%)
+```
+
+### Lifestyle
+```
+Input: "morning routines"
+Top Hook: "What they don't want you to know about morning routines" (91%)
+```
+
+### Technology
+```
+Input: "AI replacing jobs"
+Top Hook: "97% of people don't know this about AI replacing jobs" (89%)
+```
 
 ## Rate Limiting
 
