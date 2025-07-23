@@ -1,28 +1,43 @@
 # Discord Hook Bot 🎯
 
-A comprehensive Discord bot for generating viral content hooks with advanced rate limiting, engagement scoring, and persistent data storage.
+A comprehensive Discord bot for generating viral content hooks using Google Gemini AI with advanced rate limiting, engagement scoring, and persistent data storage.
 
 ## Features
 
-- **🎯 Viral Hook Generation**: Generate 10 different types of engaging content hooks
+- **🤖 AI-Powered Hook Generation**: Uses Google Gemini AI to generate viral content hooks with proven opener/follow-up structures
+- **🎯 Viral Scoring Algorithm**: 5-factor scoring system analyzing curiosity gap, emotional triggers, specificity, controversy, and action-oriented language
 - **⚡ Rate Limiting**: 3 requests per user per 24 hours with persistent storage
-- **📊 Engagement Scoring**: AI-powered scoring system for hook effectiveness
+- **📊 Engagement Scoring**: AI-powered scoring system for hook effectiveness with viral potential ranking
 - **🔒 Secure & Robust**: Input validation, error handling, and SQL injection protection
 - **📈 Analytics**: User statistics and request logging
 - **🎨 Rich Discord Integration**: Slash commands with ephemeral responses
 
-## Hook Types
+## Hook Types & AI Generation
 
-1. **❓ Question Hooks** - Thought-provoking questions
-2. **🔍 Curiosity Gaps** - "What they don't want you to know"
-3. **🔥 Controversial Statements** - Bold, attention-grabbing claims
-4. **💔 Emotional Triggers** - Heart-touching stories
-5. **⚡ Urgency Hooks** - Time-sensitive content
-6. **📖 Storytelling Openers** - Personal narrative beginnings
-7. **📊 Statistical Hooks** - Data-driven attention grabbers
-8. **🔄 Contrarian Takes** - Against-the-grain perspectives
+### AI-Powered Hook Generation Process
+1. **Context Analysis**: Gemini AI analyzes user input to extract key outcomes, solutions, and personal achievements
+2. **Template Selection**: Combines opener and follow-up sentences from 80+ proven viral structures
+3. **Viral Scoring**: 5-factor algorithm scores each hook for viral potential
+4. **Top Selection**: Returns the 10 highest-scoring hooks with engagement predictions
+
+### Hook Types Generated
+1. **❓ Question Hooks** - Thought-provoking questions that engage curiosity
+2. **🔍 Curiosity Gaps** - Creates information gaps that demand attention
+3. **🔥 Controversial Statements** - Bold claims that spark discussion
+4. **💔 Emotional Triggers** - Content that evokes strong emotional responses
+5. **⚡ Urgency Hooks** - Time-sensitive content that demands immediate action
+6. **📖 Storytelling Openers** - Personal narratives that draw readers in
+7. **📊 Statistical Hooks** - Data-driven content that provides credibility
+8. **🔄 Contrarian Takes** - Challenges conventional wisdom
 9. **👤 Personal Anecdotes** - Relatable personal experiences
-10. **💡 Actionable Tips** - Practical, implementable advice
+10. **💡 Actionable Tips** - Practical advice that provides immediate value
+
+### Viral Scoring Factors
+- **Curiosity Gap**: Measures information gaps and intrigue
+- **Emotional Trigger**: Analyzes emotional impact and engagement
+- **Specificity**: Evaluates concrete details and numbers
+- **Controversy**: Assesses potential for discussion and debate
+- **Action-Oriented**: Measures actionable content and clear next steps
 
 ## Commands
 
@@ -66,13 +81,36 @@ npm start
 Create a `.env` file with the following variables:
 
 ```env
+# Discord Bot Configuration
 DISCORD_BOT_TOKEN=your_discord_bot_token_here
+DISCORD_CLIENT_ID=your_discord_client_id_here
+DISCORD_GUILD_ID=your_discord_guild_id_here
+
+# Google Gemini AI Configuration
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Database Configuration
 DATABASE_PATH=./data/bot.db
+
+# Rate Limiting Configuration
 RATE_LIMIT_REQUESTS=3
 RATE_LIMIT_WINDOW_HOURS=24
+
+# Logging Configuration
 LOG_LEVEL=info
+
+# Environment Configuration
 NODE_ENV=production
 ```
+
+### 🔑 Getting API Keys
+
+**Google Gemini API Key:**
+1. Visit [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click "Get API Key" and create a new project
+4. Generate an API key and copy it to your `.env` file
+5. The Gemini API is used for intelligent hook generation with proven viral structures
 
 ### Discord Bot Setup
 

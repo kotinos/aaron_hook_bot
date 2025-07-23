@@ -13,6 +13,9 @@ export const config = {
     clientId: process.env.DISCORD_CLIENT_ID,
     guildId: process.env.DISCORD_GUILD_ID
   },
+  gemini: {
+    apiKey: process.env.GEMINI_API_KEY
+  },
   database: {
     path: process.env.DATABASE_PATH || './data/bot.db'
   },
@@ -27,7 +30,7 @@ export const config = {
 };
 
 export function validateConfig() {
-  const required = ['DISCORD_BOT_TOKEN'];
+  const required = ['DISCORD_BOT_TOKEN', 'GEMINI_API_KEY'];
   const missing = required.filter(key => !process.env[key]);
   
   if (missing.length > 0) {
